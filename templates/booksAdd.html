@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+
+{% block title%}{% endblock %}
+
+{% block content%}
+
+<div class="container">
+  <h1>Add a New Book</h1>
+  <div class="col">
+    <form method="POST" action="{{url_for('books_add')}}">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="bookTitle">Book Name</label>
+          <input type="text" class="form-control" name="bookTitle">
+        </div>
+
+        <div class="form-group col-6">
+          <label for="bookAuthor">Author</label>
+          <input type="text" class="form-control" name="bookAuthor">
+        </div>
+
+        <div class="form-group col-6">
+          <label for="bookGenre">Genre</label>
+          <select class="form-control" name="bookGenre">
+            {% for genre in ['Action','Drama','Historical Fiction','Fantasy','Mystery','Romance','Science Fiction','Suspense','Thriller','Young Adult'] %}
+            <option>{{genre}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group col-12">
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

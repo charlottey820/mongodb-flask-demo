@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block title%}{% endblock %}
+
+{% block content%}
+
+<div class="container">
+  <h1>Books</h1>
+  <div class="row">
+    {% for book in data.books %}
+    {{book.title}}
+    {{book.author}}
+    <a href="{{url_for('books_detail', title=book.title)}}">Details</a>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
